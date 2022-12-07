@@ -96,6 +96,7 @@ p {
 
 .clinic-logo-img {
   transition: 1s ease all;
+  cursor: pointer;
   width: 160px;
   height: 160px;
 }
