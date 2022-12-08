@@ -15,7 +15,7 @@
     <div class="left-info-part">
       <div class="clinic-logo-wrapper">
         <div @click="openLogo = false" v-if="openLogo === true" class="overlay"></div>
-        <img @click="openLogo = !openLogo" :class="{ open: openLogo }" class="clinic-logo-img" src="../assets/img/clinic-logo.png" alt="clinic-logo">
+        <img @click="[openLogo = !openLogo, scrollToTop()]" :class="{ open: openLogo }" class="clinic-logo-img" src="../assets/img/clinic-logo.png" alt="clinic-logo">
       </div>
 
       <div class="block-text">
@@ -67,8 +67,12 @@ export default {
 
     const openLogo = ref(false)
 
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     return {
-      openLogo
+      openLogo, scrollToTop
     }
   }
 }
