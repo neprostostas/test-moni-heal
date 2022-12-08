@@ -12,8 +12,6 @@
         </template>
       </Carousel>
 
-      <!-- TODO: add button that open image with info -->
-
   </div>
 </template>
 

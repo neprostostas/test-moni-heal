@@ -1,6 +1,11 @@
 <template>
 
   <div class="image-container">
+
+    <div class="info-card-wrapper">
+      <InfoCardMain />
+    </div>
+
     <img class="main-image" src="../assets/image.png" alt="image">
     <img class="shadow-image" src="../assets/shadow.png" alt="shadow">
   </div>
@@ -52,13 +57,11 @@
 <script>
 
 import {ref} from "vue";
+import InfoCardMain from "@/components/InfoCardMain.vue";
 
 export default {
   name: 'TopPart',
-  components: {
-
-  },
-
+  components: {InfoCardMain},
 
   setup() {
 
@@ -77,6 +80,13 @@ export default {
 
 p {
   font-family: "AvenirNextCyr-Medium", sans-serif!important;
+}
+
+.info-card-wrapper {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  z-index: 99;
 }
 
 .overlay {
