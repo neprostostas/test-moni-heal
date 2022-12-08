@@ -2,10 +2,8 @@
   <div class="custom-main">
     <div class="main-wrapper">
       <div class="content-wrapper">
-
         <TopPart />
         <DoctorsPart />
-
       </div>
     </div>
   </div>

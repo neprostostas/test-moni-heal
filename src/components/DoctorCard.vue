@@ -48,7 +48,7 @@
 
         <div class="position-container">
           <h2 :class="{'card-active': cardActive}" class="position-text">{{doctor.position}}</h2>
-          <img :class="{'card-active': cardActive}" class="shadow-text-img" src="../assets/shadow-text.png" alt="shadow-text">
+          <img :class="{'card-active': cardActive}" class="shadow-text-img" src="../assets/img/shadow-text.png" alt="shadow-text">
         </div>
       </div>
     </div>
