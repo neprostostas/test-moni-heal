@@ -6,8 +6,8 @@
       <InfoCardMain />
     </div>
 
-    <img class="main-image" src="../assets/image.png" alt="image">
-    <img class="shadow-image" src="../assets/shadow.png" alt="shadow">
+    <img class="main-image" src="../assets/img/image.png" alt="image">
+    <img class="shadow-image" src="../assets/img/shadow.png" alt="shadow">
   </div>
 
   <div class="main-info-container">
@@ -15,7 +15,7 @@
     <div class="left-info-part">
       <div class="clinic-logo-wrapper">
         <div @click="openLogo = false" v-if="openLogo === true" class="overlay"></div>
-        <img @click="openLogo = !openLogo" :class="{ open: openLogo }" class="clinic-logo-img" src="../assets/clinic-logo.png" alt="clinic-logo">
+        <img @click="openLogo = !openLogo" :class="{ open: openLogo }" class="clinic-logo-img" src="../assets/img/clinic-logo.png" alt="clinic-logo">
       </div>
 
       <div class="block-text">

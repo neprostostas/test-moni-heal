@@ -26,6 +26,51 @@ export default {
 
 <style>
 
+/* overwriting carousel library code */
+.carousel__slide {
+  align-items: flex-start!important;
+}
+
+.carousel__prev, .carousel__next {
+  position: relative!important;
+}
+
+.carousel__prev {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.carousel__pagination {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin-top: 0;
+}
+
+.carousel__next {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.carousel__pagination-button::after {
+  background-color: #00d7a8;
+  width: 6px;
+  height: 6px;
+  border-radius: 15px;
+}
+
+.carousel__pagination-button--active::after {
+  width: 15px;
+  height: 6px;
+  background-color: #0b8d72!important;
+}
+/* ==================================*/
+
 @font-face {
   font-family: "AvenirNextCyr-Regular";
   src: local("AvenirNextCyr-Regular"),

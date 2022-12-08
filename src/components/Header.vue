@@ -3,7 +3,7 @@
     <header class="header-wrapper">
 
       <div class="logo-wrapper">
-        <img class="logo-img" src="../assets/logo-bg.png" alt="logo-bg">
+        <img class="logo-img" src="../assets/img/logo-bg.png" alt="logo-bg">
       </div>
 
       <div class="input-container">

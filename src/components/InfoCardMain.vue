@@ -104,6 +104,7 @@ h2 {
 
 .info-card-main {
   position: relative;
+  bottom: 4px;
   padding: 15px 60px 25px 30px;
   background: #ffffff;
   -webkit-border-top-left-radius: 25px;
