@@ -36,10 +36,20 @@ export default {
 }
 
 .carousel__prev {
+  width: 35px;
+  height: 35px;
+  background-color: #00d7a8;
+  border-radius: 50%;
+
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
+}
+
+.carousel__prev svg, .carousel__next svg {
+  fill: #ffffff;
+  transform: scale(.8);
 }
 
 .carousel__pagination {
@@ -51,6 +61,11 @@ export default {
 }
 
 .carousel__next {
+  width: 35px;
+  height: 35px;
+  background-color: #00d7a8;
+  border-radius: 50%;
+
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
