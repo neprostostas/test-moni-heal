@@ -51,26 +51,38 @@
     </div>
 
     <div class="right-info-part">
-      <button class="button-text">Про клініку</button>
+      <button class="button-text clinic">Про клініку</button>
+      <button @click="photoOpen = !photoOpen" class="button-text mobile">Фото</button>
       <button class="button-text">Фото</button>
       <button class="button-location">
         <img class="location-img" src="../assets/location.png" alt="location">
         <img class="map-mb" src="../assets/map-mb.png" alt="map-mb">
       </button>
     </div>
+  </div>
 
+  <div v-if="photoOpen" class="gallery-container">
+    <img src="../assets/img/photo-1.png" alt="photo-1">
+    <img class="photo-2" src="../assets/img/photo-2.png" alt="photo-2">
+    <div class="photo-special-wrapper">
+      <p>+50 фото</p>
+      <img class="photo-3" src="../assets/img/photo-3.png" alt="photo-3">
+    </div>
   </div>
 
 </template>
 
 <script>
+
+import {ref} from "vue";
 import InfoCardMain from "@/components/InfoCardMain.vue";
 
 export default {
   name: 'TopPart',
   components: {InfoCardMain},
   setup() {
-    return {}
+    const photoOpen = ref(true)
+    return {photoOpen}
   }
 }
 </script>
@@ -79,6 +91,16 @@ export default {
 
 p {
   font-family: "AvenirNextCyr-Medium", sans-serif!important;
+}
+
+.gallery-container {
+  display: none;
+  margin-top: -80px;
+  height: 120px;
+  margin-bottom: 80px;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 10px;
 }
 
 .info-card-wrapper {
@@ -196,7 +218,27 @@ p {
   bottom: 5px;
 }
 
-.clinic-logo-wrapper-mb, .br-mb, .add-text-review, .mini-image-block.department, .map-mb {
+.photo-special-wrapper {
+  position: relative;
+}
+
+.photo-3 {
+  position: relative;
+  filter: brightness(60%)
+}
+
+.photo-special-wrapper p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 9;
+  color: #ffffff;
+  font-size: 12px;
+  width: 55px;
+}
+
+.clinic-logo-wrapper-mb, .br-mb, .add-text-review, .mini-image-block.department, .map-mb, .button-text.mobile {
   display: none;
 }
 
@@ -322,6 +364,18 @@ p {
   }
 }
 
+@media (max-width: 700px) {
+  .gallery-container {
+    display: grid;
+  }
+  .button-text {
+    display: none;
+  }
+  .button-text.mobile, .button-text.clinic {
+    display: unset;
+  }
+}
+
 @media (max-width: 600px) {
   .block-text {
     gap: 20px;
@@ -345,9 +399,22 @@ p {
   }
 }
 
+@media (max-width: 500px) {
+  .gallery-container {
+    position: relative;
+    left: -20px;
+  }
+}
+
 @media (max-width: 450px) {
   .main-info-container {
     width: 250px;
+  }
+  .photo-2, .photo-3 {
+    width: 100px;
+    height: -webkit-fill-available;
+    object-fit: cover;
+    border-radius: 5px;
   }
 }
 
