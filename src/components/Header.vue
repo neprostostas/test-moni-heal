@@ -4,10 +4,11 @@
 
       <div class="logo-wrapper">
         <img class="logo-img" src="../assets/img/logo-bg.png" alt="logo-bg">
+        <img class="logo-sm" src="../assets/img/logo-sm.png" alt="logo-sm">
       </div>
 
       <div class="input-container">
-        <input type="search" id="site-search" placeholder="Знайти фахівця">
+        <input type="search" id="site-search" :placeholder="mobile ? 'Знайти фахівця' : 'Шукати фахівця, клініку, послугу...'">
         <img class="search-icon" src="../assets/search.png" alt="search">
       </div>
 
@@ -23,6 +24,18 @@
           <p>Увійти</p>
         </button>
 
+        <div class="wrapper-icon email">
+          <div class="count-wrap-ico">{{emailCount}}</div>
+          <img class="ico-img-header" src="../assets/email-mb.png" alt="email-mb">
+        </div>
+
+        <div class="wrapper-icon notifications">
+          <div class="count-wrap-ico">{{emailNotifications}}</div>
+          <img class="ico-img-header" src="../assets/notifications-mb.png" alt="notifications-mb">
+        </div>
+
+        <img class="cabinet-mb-img" src="../assets/img/doctor-3.png" alt="cabinet-mb-img">
+
         <button class="button-menu">
           <p style="text-transform: uppercase">МЕНЮ</p>
           <img class="menu-icon" src="../assets/menu.png" alt="menu">
@@ -36,12 +49,26 @@
 
 <script>
 
+import {ref, onMounted} from "vue";
+
 export default {
   name: 'CustomHeader',
 
   setup() {
 
-    return { }
+    const mobile = ref(false)
+    const emailCount = ref(12)
+    const emailNotifications = ref(126)
+
+    // on mounted component in DOM-tree check whether device is mobile and change placeholder in input if positive
+    onMounted(()=>{
+      if(window.screen.width > 700) {
+        mobile.value = true;
+      }
+      console.log("mobile? -", !mobile.value);
+    })
+
+    return {mobile, emailCount, emailNotifications}
   }
 }
 </script>
@@ -106,6 +133,7 @@ p {
 }
 
 #select {
+  opacity: 1;
   color: #16395b;
   font-weight: 600;
   font-size: 16px;
@@ -120,6 +148,7 @@ p {
 }
 
 .search-icon {
+  background: #f6f4fc;
   position: absolute;
   right: 15px;
   top: 15px;
@@ -157,6 +186,124 @@ p {
   grid-template-columns: repeat(3, auto);
   justify-content: space-between;
   align-items: center;
+}
+
+.cabinet-mb-img, .logo-sm, .wrapper-icon {
+  display: none;
+}
+
+@media (max-width: 1265px) {
+  #site-search {
+    width: 400px;
+  }
+}
+
+@media (max-width: 1080px) {
+  #site-search {
+    width: 300px;
+  }
+}
+
+@media (max-width: 980px) {
+  #site-search {
+    width: 200px;
+  }
+}
+
+@media (max-width: 880px) {
+  #select {
+    display: none;
+  }
+  #nav-custom {
+    grid-template-columns: repeat(2, auto);
+  }
+  #site-search {
+    width: 300px;
+  }
+}
+
+@media (max-width: 810px) {
+  .button-login {
+    display: none;
+  }
+  #nav-custom {
+    grid-template-columns: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .button-menu {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0;
+  }
+  .button-menu p {
+    display: none;
+  }
+  .cabinet-mb-img {
+    display: unset;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  .header-wrapper {
+    grid-template-columns: repeat(2, auto);
+    gap: 20px;
+  }
+  .wrapper-icon {
+    display: unset;
+  }
+  #nav-custom {
+    grid-template-columns: repeat(4, auto);
+    gap: 25px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .input-container {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  #site-search {
+    width: 100%;
+  }
+  .logo-img {
+    display: none;
+  }
+  .logo-sm {
+    display: unset;
+  }
+  .count-wrap-ico {
+    position: absolute;
+    top: -15px;
+    left: 5px;
+    font-size: 10px;
+    color: #ffffff;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: #16395b;
+  }
+  .wrapper-icon:hover {
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+  }
+  .wrapper-icon:hover .count-wrap-ico {
+    color: #16395b;
+    background-color: #ffffff;
+  }
+  .wrapper-icon {
+    position: relative;
+  }
+}
+
+@media (max-width: 550px) {
+  .header-wrapper {
+    padding: 20px;
+  }
 }
 
 </style>

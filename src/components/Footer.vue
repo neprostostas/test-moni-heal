@@ -3,7 +3,7 @@
     <footer class="footer-wrapper">
       <div class="footer-content">
         <div class="footer-top-part">
-          <div class="footer-block">
+          <div class="footer-block one">
             <h3>Компанія</h3>
             <div class="detail-block company">
               <p>Про нас</p>
@@ -11,7 +11,7 @@
               <p>Довідковий центр</p>
             </div>
           </div>
-          <div class="footer-block">
+          <div class="footer-block two">
             <h3>Контакти</h3>
             <a class="mail-link" href="mailto:moehealthmapsapi@gmail.com">moehealthmapsapi@gmail.com</a>
             <div class="social-network-block">
@@ -26,14 +26,14 @@
               </div>
             </div>
           </div>
-          <div class="footer-block">
+          <div class="footer-block three">
             <h3>Підписатися на розсилку</h3>
             <button class="email-input-button">
               Введіть вашу пошту
               <img src="../assets/right-arrow.png" alt="right-arrow">
             </button>
           </div>
-          <div class="footer-block">
+          <div class="footer-block four">
             <select id="select">
               <option value="value1" selected>Українська</option>
               <option value="value2">English</option>
@@ -223,6 +223,110 @@ h3 {
   border: 1px solid #545784;
   border-radius: 5px;
   background-color: #f6f4fc;
+}
+
+@media (max-width: 1095px) {
+  .footer-top-part {
+    grid-template-columns: repeat(2, auto);
+    gap: 50px;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1045px) {
+  .footer-bottom {
+    grid-template-columns: auto;
+    gap: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
+@media (max-width: 750px) {
+  .footer-block.three {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .footer-block.four {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+}
+
+@media (max-width: 675px) {
+  .footer-wrapper {
+    padding: 20px 60px;
+  }
+}
+
+@media (max-width: 550px) {
+  .footer-wrapper {
+    padding: 20px;
+    background-image: url('@/assets/img/footer-bg-mb.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .footer-top-part {
+    gap: 20px;
+  }
+  .footer-bottom {
+    margin-top: 20px;
+  }
+  .footer-content {
+    display: grid;
+    padding-top: 100px;
+    align-items: baseline;
+  }
+  #select {
+    background-color: #244c83;
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+  .info-line-text span, .footer-block h3, .email-input-button {
+    color: #ffffff;
+  }
+  h3:not(.footer-block h3), .detail-block.company, .right-bottom-part a {
+    color: #cecece;
+  }
+}
+
+@media (max-width: 475px) {
+  .mail-link, .social-network-block, .detail-block.company {
+    margin-top: 10px;
+  }
+  .footer-top-part {
+    justify-items: start;
+    justify-content: space-between;
+  }
+  .footer-bottom {
+    justify-content: space-between;
+  }
+  .email-input-button {
+    width: calc(100vw - 100px);
+  }
+  #select {
+    font-size: 12px;
+  }
+  .left-bottom-part {
+    justify-content: start;
+  }
+}
+
+@media (max-width: 465px) {
+  .info-line-text, .info-line-text span, .right-bottom-part a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 410px) {
+  .info-line-text, .info-line-text span, .right-bottom-part a {
+    font-size: 10px;
+  }
 }
 
 </style>

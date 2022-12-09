@@ -38,4 +38,34 @@ export default {
   padding: 20px 100px;
 }
 
+@media (max-width: 1180px) {
+  .content-wrapper {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 935px) {
+  .content-wrapper {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 700px) {
+  .content-wrapper {
+    margin-top: 115px;
+  }
+}
+
+@media (max-width: 675px) {
+  .main-wrapper {
+    padding: 20px 60px;
+  }
+}
+
+@media (max-width: 550px) {
+  .main-wrapper {
+    padding: 20px;
+  }
+}
+
 </style>

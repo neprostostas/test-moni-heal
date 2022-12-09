@@ -6,6 +6,10 @@
       <InfoCardMain />
     </div>
 
+    <div class="clinic-logo-wrapper-mb">
+      <img class="clinic-logo-img" src="../assets/img/clinic-logo.png" alt="clinic-logo">
+    </div>
+
     <img class="main-image" src="../assets/img/image.png" alt="image">
     <img class="shadow-image" src="../assets/img/shadow.png" alt="shadow">
   </div>
@@ -14,28 +18,32 @@
 
     <div class="left-info-part">
       <div class="clinic-logo-wrapper">
-        <div @click="openLogo = false" v-if="openLogo === true" class="overlay"></div>
-        <img @click="[openLogo = !openLogo, scrollToTop()]" :class="{ open: openLogo }" class="clinic-logo-img" src="../assets/img/clinic-logo.png" alt="clinic-logo">
+        <img class="clinic-logo-img" src="../assets/img/clinic-logo.png" alt="clinic-logo">
       </div>
 
       <div class="block-text">
         <div class="text-info-container">
-          <h3 class="h3-text">Медичний, оздоровчий центр «Благомед»</h3>
+          <h3 class="h3-text">Медичний, оздоровчий центр <br class="br-mb"> «Благомед»</h3>
           <p class="info-clinic">Медичний центр</p>
         </div>
 
         <div class="statistic-part">
-          <div class="mini-image-block">
+          <div class="mini-image-block star">
             <p>5,0</p>
             <img class="star" src="../assets/star.png" alt="star">
+            <p class="add-text-review">(953 Відгуків)</p>
           </div>
-          <div class="mini-image-block">
+          <div class="mini-image-block doctor">
             <p>120 Лікарів</p>
             <img class="doctor" src="../assets/doctor.png" alt="doctor">
           </div>
-          <div class="mini-image-block">
+          <div class="mini-image-block letter">
             <p>340 Послуг</p>
             <img class="letter" src="../assets/letter.png" alt="letter">
+          </div>
+          <div class="mini-image-block department">
+            <img class="department" src="../assets/department.png" alt="department">
+            <p>50 Філіалів</p>
           </div>
         </div>
       </div>
@@ -46,7 +54,8 @@
       <button class="button-text">Про клініку</button>
       <button class="button-text">Фото</button>
       <button class="button-location">
-        <img src="../assets/location.png" alt="location">
+        <img class="location-img" src="../assets/location.png" alt="location">
+        <img class="map-mb" src="../assets/map-mb.png" alt="map-mb">
       </button>
     </div>
 
@@ -55,32 +64,18 @@
 </template>
 
 <script>
-
-import {ref} from "vue";
 import InfoCardMain from "@/components/InfoCardMain.vue";
 
 export default {
   name: 'TopPart',
   components: {InfoCardMain},
-
   setup() {
-
-    const openLogo = ref(false)
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    return {
-      openLogo, scrollToTop
-    }
+    return {}
   }
 }
 </script>
 
 <style scoped>
-
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
 
 p {
   font-family: "AvenirNextCyr-Medium", sans-serif!important;
@@ -93,36 +88,9 @@ p {
   z-index: 99;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
 .clinic-logo-img {
-  transition: 1s ease all;
-  cursor: pointer;
   width: 160px;
   height: 160px;
-}
-
-.clinic-logo-img.open {
-  transition: 1s ease all;
-  position: absolute;
-  z-index: 1001;
-  bottom: 100%;
-  width: 400px;
-  height: 400px;
-  image-rendering: pixelated;
 }
 
 .right-info-part {
@@ -189,6 +157,7 @@ p {
 
 .mini-image-block {
   display: grid;
+  align-items: center;
   grid-template-columns: repeat(2, auto);
   gap: 5px;
 }
@@ -227,16 +196,165 @@ p {
   bottom: 5px;
 }
 
-.clinic-logo-img {
-  animation: bounce 4s infinite;
-  -webkit-animation: bounce 4s infinite;
-  -moz-animation: bounce 4s infinite;
-  -o-animation: bounce 4s infinite;
+.clinic-logo-wrapper-mb, .br-mb, .add-text-review, .mini-image-block.department, .map-mb {
+  display: none;
 }
 
-@-webkit-keyframes bounce { 0% {-webkit-transform: translateY(0);} 50% {-webkit-transform: translateY(-10px);} 100% {-webkit-transform: translateY(0px);} }
-@-moz-keyframes bounce { 0% {-moz-transform: translateY(0);} 50% {-moz-transform: translateY(-10px);} 100% {-moz-transform: translateY(0px);} }
-@-o-keyframes bounce { 0% {-o-transform: translateY(0);} 50% {-o-transform: translateY(-10px);} 100% {-o-transform: translateY(0px);} }
-@keyframes bounce { 0% {transform: translateY(0);} 50% {transform: translateY(-10px);} 100% {transform: translateY(0px);} }
+@media (max-width: 1285px) {
+  .left-info-part {
+    grid-template-columns: auto;
+    gap: 0;
+  }
+  .clinic-logo-wrapper {
+    display: none;
+  }
+  .clinic-logo-wrapper-mb {
+    display: unset;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    z-index: 2;
+  }
+  .clinic-logo-wrapper-mb img {
+    width: 162px;
+    height: 162px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .clinic-logo-wrapper-mb {
+    top: -60px;
+    left: 20px;
+  }
+  .clinic-logo-wrapper-mb img {
+    width: 122px;
+    height: 122px;
+  }
+}
+
+@media (max-width: 1110px) {
+  .br-mb {
+    display: unset;
+  }
+  .info-clinic {
+    padding-top: 10px;
+  }
+  .block-text {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 988px) {
+  .main-info-container {
+    grid-template-columns: auto;
+  }
+  .add-text-review {
+    display: unset;
+  }
+  .mini-image-block.star {
+    grid-template-columns: repeat(3, auto);
+  }
+  .mini-image-block.department {
+    display: grid;
+  }
+  .mini-image-block.doctor img, .mini-image-block.letter img {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .mini-image-block.doctor p, .mini-image-block.letter p {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .statistic-part {
+    grid-template-columns: repeat(2, auto);
+    justify-items: start;
+  }
+  .text-info-container {
+    position: relative;
+    left: -28px;
+  }
+  .statistic-part, .right-info-part {
+    position: relative;
+    left: -40px;
+  }
+  .block-text {
+    gap: 40px;
+  }
+  .location-img {
+    display: none;
+  }
+  .map-mb {
+    display: unset;
+  }
+}
+
+@media (max-width: 935px) {
+  .clinic-logo-wrapper-mb img {
+    width: 82px;
+    height: 82px;
+  }
+  .clinic-logo-wrapper-mb {
+    top: -40px;
+    left: 20px;
+  }
+}
+
+@media (max-width: 820px) {
+  .block-text {
+    margin-top: 10px;
+  }
+  .statistic-part {
+    font-size: 12px;
+  }
+  .button-text, .button-location {
+    font-size: 12px;
+    padding: 10px;
+  }
+  .h3-text {
+    font-size: 18px;
+  }
+  .info-clinic {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 600px) {
+  .block-text {
+    gap: 20px;
+    margin-top: 35px;
+  }
+  .statistic-part {
+    font-size: 10px;
+  }
+  .button-text, .button-location {
+    font-size: 10px;
+    padding: 10px;
+  }
+  .h3-text {
+    font-size: 14px;
+  }
+  .info-clinic {
+    font-size: 9px;
+  }
+  .main-info-container {
+    width: 300px;
+  }
+}
+
+@media (max-width: 450px) {
+  .main-info-container {
+    width: 250px;
+  }
+}
+
+@media (max-width: 440px) {
+  .h3-text {
+    font-size: 12px;
+  }
+}
 
 </style>

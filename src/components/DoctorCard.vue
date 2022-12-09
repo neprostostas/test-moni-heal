@@ -85,7 +85,6 @@ export default {
   props: {
     doctor: {
       active: Boolean,
-      'work-here': Boolean,
       rate: Number,
       preview: Number,
       services: Number,

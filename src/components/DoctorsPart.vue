@@ -44,12 +44,12 @@ export default {
         700: {
           itemsToShow: 2,
         },
-        // 930px and up
-        930: {
-          itemsToShow: 3,
-        },
         // 1024 and up
         1024: {
+          itemsToShow: 3,
+        },
+        // 1250px and up
+        1250: {
           itemsToShow: 4,
         },
       },

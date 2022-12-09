@@ -53,6 +53,7 @@ export default {
 }
 
 .carousel__pagination {
+  padding-left: 0;
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -100,6 +101,7 @@ export default {
 
 html, body, * {
   font-family: "AvenirNextCyr-Regular", sans-serif;
+  /*transition: 1s all ease-in-out;*/
 }
 
 body {
